@@ -32,17 +32,21 @@ class ChartWeb extends Component {
                     </style>
                     <head>
                         <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
-                        ${this.props.stock ? '<script src="https://code.highcharts.com/stock/highstock.js"></script>'
+                        ${this.props.map ? '<script src="https://code.highcharts.com/maps/highmaps.js"></script>'
                                       : '<script src="https://code.highcharts.com/highcharts.js"></script>'}
                         ${this.props.more ? '<script src="https://code.highcharts.com/highcharts-more.js"></script>'
                                       : ''}
                         ${this.props.guage ? '<script src="https://code.highcharts.com/modules/solid-gauge.js"></script>'
                                       : ''}
+                        
+                        <script src="https://code.highcharts.com/maps/modules/data.js"></script>
                         <script src="https://code.highcharts.com/modules/exporting.js"></script>
+                        ${this.props.map ? '<script src="https://code.highcharts.com/mapdata/custom/world.js"></script>' : ''}
+                        
                         <script>
                         $(function () {
                             Highcharts.setOptions(${JSON.stringify(this.props.options)});
-                            Highcharts.${this.props.stock ? 'stockChart' : 'chart'}('container', `,
+                            Highcharts.${this.props.map ? 'mapChart' : 'chart'}('container', `,
             end:`           );
                         });
                         </script>
