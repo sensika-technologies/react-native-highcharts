@@ -42,6 +42,8 @@ class ChartWeb extends Component {
                         <script src="https://code.highcharts.com/maps/modules/data.js"></script>
                         <script src="https://code.highcharts.com/modules/exporting.js"></script>
                         ${this.props.map ? '<script src="https://code.highcharts.com/mapdata/custom/world.js"></script>' : ''}
+                        ${this.props.treemap ? '<script src="https://code.highcharts.com/maps/modules/heatmap.js"></script><script src="https://code.highcharts.com/maps/modules/treemap.js"></script>' : ''}
+                        ${this.props.wordcloud ? '<script src="https://code.highcharts.com/maps/modules/wordcloud.js"></script>' : ''}
                         
                         <script>
                         $(function () {
