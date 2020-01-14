@@ -32,18 +32,18 @@ class ChartWeb extends Component {
                     </style>
                     <head>
                         <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
-                        ${this.props.map ? '<script src="https://code.highcharts.com/maps/highmaps.js"></script>'
-                                      : '<script src="https://code.highcharts.com/highcharts.js"></script>'}
-                        ${this.props.more ? '<script src="https://code.highcharts.com/highcharts-more.js"></script>'
-                                      : ''}
-                        ${this.props.guage ? '<script src="https://code.highcharts.com/modules/solid-gauge.js"></script>'
-                                      : ''}
-                        
-                        <script src="https://code.highcharts.com/maps/modules/data.js"></script>
-                        <script src="https://code.highcharts.com/modules/exporting.js"></script>
-                        ${this.props.map ? '<script src="https://code.highcharts.com/mapdata/custom/world.js"></script>' : ''}
-                        ${this.props.treemap ? '<script src="https://code.highcharts.com/maps/modules/heatmap.js"></script><script src="https://code.highcharts.com/maps/modules/treemap.js"></script>' : ''}
-                        ${this.props.wordcloud ? '<script src="https://code.highcharts.com/maps/modules/wordcloud.js"></script>' : ''}
+                        ${this.props.map ? '<script src="https://code.highcharts.com/maps/6.2.0/js/modules/map.js"></script>'
+                : '<script src="https://code.highcharts.com/6.2.0/highcharts.js"></script>'}
+                        ${this.props.more ? '<script src="https://code.highcharts.com/6.2.0/highcharts-more.js"></script>'
+                : ''}
+                        ${this.props.guage ? '<script src="https://code.highcharts.com/6.2.0/modules/solid-gauge.js"></script>'
+                : ''}
+
+                        <script src="https://code.highcharts.com/maps/6.2.0/modules/data.js"></script>
+                        <script src="https://code.highcharts.com/6.2.0/modules/exporting.js"></script>
+                        ${this.props.map ? '<script src="https://code.highcharts.com/mapdata/6.2.0/custom/world.js"></script>' : ''}
+                        ${this.props.treemap ? '<script src="https://code.highcharts.com/maps/6.2.0/modules/heatmap.js"></script><script src="https://code.highcharts.com/maps/6.2.0/modules/treemap.js"></script>' : ''}
+                        ${this.props.wordcloud ? '<script src="https://code.highcharts.com/maps/6.2.0/modules/wordcloud.js"></script>' : ''}
                         
                         <script>
                         $(function () {
@@ -81,22 +81,22 @@ class ChartWeb extends Component {
 
         config = JSON.parse(config)
         let concatHTML = `${this.state.init}${flattenObject(config)}${this.state.end}`;
-        
+
         return (
-          <View style={this.props.style}>
-              <WebView
-                  onLayout={this.reRenderWebView}
-                  style={styles.full}
-                  source={{ html: concatHTML, baseUrl: 'web/' }}
-                  javaScriptEnabled={true}
-                  domStorageEnabled={true}
-                  scalesPageToFit={true}
-                  scrollEnabled={false}
-                  automaticallyAdjustContentInsets={true}
-                  {...this.props}
-              />
-          </View>
-        );
+            <View style={this.props.style}>
+            <WebView
+        onLayout={this.reRenderWebView}
+        style={styles.full}
+        source={{ html: concatHTML, baseUrl: 'web/' }}
+        javaScriptEnabled={true}
+        domStorageEnabled={true}
+        scalesPageToFit={true}
+        scrollEnabled={false}
+        automaticallyAdjustContentInsets={true}
+        {...this.props}
+        />
+        </View>
+    );
     };
 };
 
